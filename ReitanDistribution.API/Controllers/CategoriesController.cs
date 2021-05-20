@@ -45,7 +45,9 @@ namespace ReitanDistribution.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
-            if (id != category.Id)
+            category.Id = id;
+
+            if (category.Id <= 0)
             {
                 return BadRequest();
             }

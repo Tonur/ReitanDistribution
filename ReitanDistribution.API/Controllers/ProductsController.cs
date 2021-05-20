@@ -55,10 +55,7 @@ namespace ReitanDistribution.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(Guid id, Product product)
         {
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
+            product.Id = id;
 
             _context.Entry(product).State = EntityState.Modified;
 
