@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ReitanDistribution.Core;
 
 namespace ReitanDistribution.Infrastructure
@@ -13,6 +12,7 @@ namespace ReitanDistribution.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //TODO When this gets out of testing, use a SQL database instead
             optionsBuilder.UseInMemoryDatabase("Reitan");
             base.OnConfiguring(optionsBuilder);
         }

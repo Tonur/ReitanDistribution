@@ -15,7 +15,7 @@ namespace ReitanDistribution.Infrastructure
                 .RuleFor(category => category.Name, faker => faker.Commerce.ProductMaterial())
                 .RuleFor(category => category.Description, faker => faker.Commerce.ProductAdjective());
 
-            var categories = categoryFaker.Generate(1);
+            var categories = categoryFaker.Generate(2);
             modelBuilder.Entity<Category>().HasData(categories);
 
             var units = new List<Unit>
@@ -42,7 +42,7 @@ namespace ReitanDistribution.Infrastructure
                 .RuleFor(supplier => supplier.ContactPerson, faker => faker.Person.FullName)
                 .RuleFor(supplier => supplier.PhoneNumber, faker => faker.Person.Phone);
 
-            var suppliers = supplierFaker.Generate(1);
+            var suppliers = supplierFaker.Generate(2);
             modelBuilder.Entity<Supplier>().HasData(suppliers);
 
             var productFaker = new Faker<Product>()
@@ -56,7 +56,7 @@ namespace ReitanDistribution.Infrastructure
                 .RuleFor(product => product.CategoryId, faker => faker.PickRandom(categories).Id)
                 .RuleFor(product => product.SupplierId, faker => faker.PickRandom(suppliers).Id);
 
-            var products = productFaker.Generate(1);
+            var products = productFaker.Generate(5);
             modelBuilder.Entity<Product>().HasData(products);
         }
     }

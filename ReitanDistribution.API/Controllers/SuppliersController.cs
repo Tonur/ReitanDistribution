@@ -20,14 +20,21 @@ namespace ReitanDistribution.API.Controllers
             _context = context;
         }
 
-        // GET: api/Suppliers
+        /// <summary>
+        /// <para>Url example: GET: Suppliers</para>
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Supplier>>> GetSuppliers()
         {
             return await _context.Suppliers.ToListAsync();
         }
 
-        // GET: api/Suppliers/5
+        /// <summary>
+        /// <para>Url example: GET: Suppliers/5</para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Supplier>> GetSupplier(Guid id)
         {
@@ -41,8 +48,13 @@ namespace ReitanDistribution.API.Controllers
             return supplier;
         }
 
-        // PUT: api/Suppliers/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// <para>Url example: PUT: Suppliers/5</para>
+        /// <para>To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754 </para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="supplier"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutSupplier(Guid id, Supplier supplier)
         {
@@ -67,8 +79,12 @@ namespace ReitanDistribution.API.Controllers
             return NoContent();
         }
 
-        // POST: api/Suppliers
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// <para>Url example: POST: Suppliers/5</para>
+        /// <para>To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754 </para>
+        /// </summary>
+        /// <param name="supplier"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Supplier>> PostSupplier(Supplier supplier)
         {
@@ -78,7 +94,11 @@ namespace ReitanDistribution.API.Controllers
             return CreatedAtAction("GetSupplier", new { id = supplier.Id }, supplier);
         }
 
-        // DELETE: api/Suppliers/5
+        /// <summary>
+        /// <para>Url example: DELETE: Suppliers/5</para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSupplier(Guid id)
         {

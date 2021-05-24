@@ -18,15 +18,22 @@ namespace ReitanDistribution.API.Controllers
         {
             _context = context;
         }
-
-        // GET: api/Categories
+        
+        /// <summary>
+        /// <para>Url example: GET: Categories/5</para>
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
             return await _context.Categories.ToListAsync();
         }
-
-        // GET: api/Categories/5
+        
+        /// <summary>
+        /// <para>Url example: GET: Categories/5</para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
@@ -40,8 +47,13 @@ namespace ReitanDistribution.API.Controllers
             return category;
         }
 
-        // PUT: api/Categories/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// <para>Url example: PUT: Categories/5</para>
+        /// <para>To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754 </para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="category"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
@@ -70,9 +82,13 @@ namespace ReitanDistribution.API.Controllers
 
             return NoContent();
         }
-
-        // POST: api/Categories
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        
+        /// <summary>
+        /// <para>Url example: POST: Categories</para>
+        /// <para>To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754 </para>
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
@@ -81,8 +97,12 @@ namespace ReitanDistribution.API.Controllers
 
             return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
-
-        // DELETE: api/Categories/5
+        
+        /// <summary>
+        /// <para>Url example: DELETE: Categories/5</para>
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
